@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
+import UnansweredQuestions from './UnansweredQuestions'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class Dashboard extends Component {
           <TabPane tabId="1">
             <Row>
               <Col sm="12">
-                <h4>Tab 1 Contents</h4>
+                <UnansweredQuestions />
               </Col>
             </Row>
           </TabPane>
@@ -60,7 +61,7 @@ class Dashboard extends Component {
   }
 }
 
-// function mapStateToProps ({ tweets }){
+// function mapStateToProps ({ questions }){
 //   return {
 //     tweetIds : Object.keys(tweets)
 //       .sort((a,b) => tweets[b].timestamp-tweets[a].timestamp)

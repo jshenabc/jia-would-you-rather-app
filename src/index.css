@@ -3,3 +3,24 @@
   margin: 0 auto;
   padding: 10px;
 }
+ul {
+  padding-left: 0;
+}
+
+.questionList {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  color: #252525;
+}
+.avatar {
+  height: 50px;
+  border-radius: 25px;
+  margin: 0 10px;
+}
+.question-info {
+  display: inline-block;
+}
