@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Button } from 'reactstrap';
+import Dashboard from './Dashboard'
 
 class App extends Component {
   render() {
     return (
       <div>
-        test
+        <Dashboard />
       </div>
     )
   }
