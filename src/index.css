@@ -24,3 +24,8 @@ a {
 .question-info {
   display: inline-block;
 }
+
+.newQuestionHeader {
+  text-align: center;
+  font-weight: bold;
+}

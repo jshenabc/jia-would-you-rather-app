@@ -21,8 +21,8 @@ export function handleAddQuestion (optionOneInput, optionTwoInput) {
     //return API
     return saveQuestion({
       author: authedUser,
-      optionOneInput,
-      optionTwoInput,
+      optionOneText: optionOneInput,
+      optionTwoText: optionTwoInput,
     })
       //dispatch addQuestion actions
       .then(( question ) => dispatch(addQuestion(question)))
