@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import UnansweredQuestions from './UnansweredQuestions'
+import AnsweredQuestions from './AnsweredQuestions'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Dashboard extends Component {
           <TabPane tabId="2">
             <Row>
               <Col sm="12">
-                <h4>Tab 2 Contents</h4>
+                <AnsweredQuestions />
               </Col>
             </Row>
           </TabPane>

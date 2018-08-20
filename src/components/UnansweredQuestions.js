@@ -8,9 +8,9 @@ class UnansweredQuestions extends Component {
     return (
       <div>
         <ul >
-          {this.props.questionIds.map((id) => (
+          {this.props.unAnsweredQuestions.map((id) => (
             <li key={id} className='questionList'>
-              <Question id={id}/>
+              <Question id={id} answered={this.props.answered}/>
             </li>
           ))}
         </ul>
@@ -19,10 +19,17 @@ class UnansweredQuestions extends Component {
   }
 }
 
-function mapStateToProps ({ questions }){
+function mapStateToProps ({ authedUser, users, questions }){
+  let user;
+  if ( authedUser && users.hasOwnProperty(authedUser) ) {
+    user = users[authedUser]
+  }
+
+  const unAnsweredQuestions = Object.keys(questions)
+    .sort((a,b) => questions[b].timestamp-questions[a].timestamp).filter(id => !user.answers.hasOwnProperty(id))
   return {
-    questionIds : Object.keys(questions)
-      .sort((a,b) => questions[b].timestamp-questions[a].timestamp)
+    unAnsweredQuestions,
+    answered: false,
   }
 }
 export default connect(mapStateToProps)(UnansweredQuestions)

@@ -6,6 +6,7 @@ import { Card, Button, CardHeader, CardBody,
 
 class Question extends Component {
   render() {
+    const { answered } = this.props
     const { question, users } = this.props
     const {
       optionOne, author, timestamp, id,
@@ -30,7 +31,9 @@ class Question extends Component {
             <div className='question-info'>
               <CardTitle>Would you rather</CardTitle>
               <CardText>...{optionOne.text}...</CardText>
-              <Link to={`/question/${id}`}><Button outline color="info">View Poll</Button></Link>
+              {answered
+                ? <Link to={`/question/${id}`}><Button outline color="info">View Poll Result</Button></Link>
+                : <Link to={`/question/${id}`}><Button outline color="info">View Poll</Button></Link>}
             </div>
           </CardBody>
         </Card>
