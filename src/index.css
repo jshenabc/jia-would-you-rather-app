@@ -29,3 +29,18 @@ a {
   text-align: center;
   font-weight: bold;
 }
+
+.progressBar {
+  margin: 10px 0;
+}
+
+
+.resultCard {
+  border-color: #333;
+  opacity: 0.7;
+}
+
+.yourVote {
+  text-align: right;
+  font-weight: bold;
+}

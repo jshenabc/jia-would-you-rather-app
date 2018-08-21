@@ -6,7 +6,7 @@ import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 
 
-import NewQuestion from './NewQuestion'
+import QuestionResult from './QuestionResult'
 
 class App extends Component {
 
@@ -22,7 +22,7 @@ class App extends Component {
           <div>
             {this.props.loading === true
               ? null
-              : <NewQuestion />
+              : <QuestionResult match={{params: {id: 'loxhs1bqm25b708cmbf3g'}}} />
               //<Dashboard />
             }
           </div>
