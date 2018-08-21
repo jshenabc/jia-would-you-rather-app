@@ -5,7 +5,7 @@ import { handleAnswerQuestion } from '../actions/questions'
 import { Card, Button, CardHeader, CardBody,
   CardTitle, CardText, CustomInput, Form, FormGroup } from 'reactstrap';
 
-class Question extends Component {
+class VotePage extends Component {
   state= {
     selectedAnswer: '',
     toResult: false,
@@ -87,4 +87,4 @@ function mapStateToProps ({authedUser, users, questions}, props) {
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps)(VotePage)

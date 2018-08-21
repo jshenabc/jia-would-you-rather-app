@@ -8,6 +8,7 @@ import Dashboard from './Dashboard'
 import NewQuestion from './NewQuestion'
 import QuestionResult from './QuestionResult'
 import VotePage from './VotePage'
+import NavBar from './NavBar'
 
 class App extends Component {
 
@@ -19,11 +20,12 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <LoadingBar />
           <div>
+            <NavBar/>
+            <LoadingBar />
             {this.props.loading === true
               ? null
-            :  <div>
+            :  <div className='container'>
                 <Route path='/' exact component={Dashboard}/>
                 <Route path='/Question/:id' exact component={VotePage}/>
                 <Route path='/Result/:id' exact component={QuestionResult}/>
