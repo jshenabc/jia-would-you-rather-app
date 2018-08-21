@@ -32,8 +32,8 @@ class Question extends Component {
   }
 
   render() {
-    const { answered } = this.props
-    const { question, users } = this.props
+    const { toResult } = this.state
+    const { question, users, answered } = this.props
     const {
       optionOne, optionTwo, author, timestamp, id,
     } = question
@@ -41,6 +41,9 @@ class Question extends Component {
       return(
         <p>This question doesnt exist</p>
       )
+    }
+    if (toResult === true ) {
+      return <Redirect to={`/Result/${id}`}/>
     }
     //console.log(this.props)
     return (

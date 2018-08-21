@@ -32,7 +32,7 @@ class Question extends Component {
               <CardTitle>Would you rather</CardTitle>
               <CardText>...{optionOne.text}...</CardText>
               {answered
-                ? <Link to={`/Question/${id}`}><Button outline color="info">View Poll Result</Button></Link>
+                ? <Link to={`/Result/${id}`}><Button outline color="info">View Poll Result</Button></Link>
                 : <Link to={`/Question/${id}`}><Button outline color="info">View Poll</Button></Link>
               }
             </div>
