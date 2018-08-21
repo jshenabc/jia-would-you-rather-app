@@ -32,8 +32,8 @@ class Question extends Component {
               <CardTitle>Would you rather</CardTitle>
               <CardText>...{optionOne.text}...</CardText>
               {answered
-                ? <Link to={`/question/${id}`}><Button outline color="info">View Poll Result</Button></Link>
-                : <Link to={`/question/${id}`}><Button outline color="info">View Poll</Button></Link>
+                ? <Link to={`/Question/${id}`}><Button outline color="info">View Poll Result</Button></Link>
+                : <Link to={`/Question/${id}`}><Button outline color="info">View Poll</Button></Link>
               }
             </div>
           </CardBody>

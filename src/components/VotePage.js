@@ -1,10 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+import { handleAnswerQuestion } from '../actions/questions'
 import { Card, Button, CardHeader, CardBody,
   CardTitle, CardText, CustomInput, Form, FormGroup } from 'reactstrap';
 
 class Question extends Component {
+  state= {
+    selectedAnswer: '',
+    toResult: false,
+  }
+
+  handleToggle = (e) => {
+    const selectedValue = e.target.value
+    this.setState(() => ({
+      selectedAnswer: selectedValue,
+    }))
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { selectedAnswer } = this.state
+    const { id } = this.props.question
+    const { dispatch, authedUser } = this.props
+    //todo: add question to stroe
+    dispatch(handleAnswerQuestion( authedUser, id, selectedAnswer ))
+    this.setState(() => ({
+      selectedAnswer: '',
+      toResult: true,
+    }))
+  }
+
   render() {
     const { answered } = this.props
     const { question, users } = this.props
@@ -32,10 +58,10 @@ class Question extends Component {
 
               <Form onSubmit={this.handleSubmit}>
                <FormGroup>
-                 <CustomInput type="radio" id="optionOneRadio" name="customRadio" label={optionOne.text} />
+                 <CustomInput type="radio" id="optionOneRadio" name="customRadio" value="optionOne" onChange={this.handleToggle} label={optionOne.text} />
                </FormGroup>
                <FormGroup>
-                  <CustomInput type="radio" id="optionTwoRadio" name="customRadio" label={optionTwo.text} />
+                  <CustomInput type="radio" id="optionTwoRadio" name="customRadio" value="optionTwo" onChange={this.handleToggle} label={optionTwo.text} />
                </FormGroup>
                <Button color="info" type='submit'>Submit</Button>
               </Form>
