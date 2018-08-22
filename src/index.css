@@ -44,3 +44,7 @@ a {
   text-align: right;
   font-weight: bold;
 }
+
+.myBadge {
+  margin-left: 20px;
+}

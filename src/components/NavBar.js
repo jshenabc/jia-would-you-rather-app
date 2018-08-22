@@ -40,7 +40,7 @@ class NavBar extends React.Component {
                 <NavLink href="/New">New Question</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/Board">Leader Board</NavLink>
+                <NavLink href="/LeaderBoard">Leader Board</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>Hello! {authedUser}</NavLink>
