@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 
@@ -11,6 +11,7 @@ import VotePage from './VotePage'
 import NavBar from './NavBar'
 import LeaderBoard from './LeaderBoard'
 import Login from './Login'
+import NoMatch from './NoMatch'
 
 class App extends Component {
 
@@ -19,6 +20,19 @@ class App extends Component {
   }
 
   render() {
+    const { loggedIn } = this.props
+    //ProtectedRoute function code
+    const ProtectedRoute = ({ component: Comp, loggedIn, path, ...rest }) => {
+    return (
+        <Route
+          path={path}
+          {...rest}
+          render={props => {
+            return loggedIn ? <Comp {...props} /> : <Redirect to="/Login" />;
+          }}
+        />
+      );
+    }
     return (
       <Router>
         <Fragment>
@@ -28,12 +42,15 @@ class App extends Component {
             {this.props.loading === true
               ? null
             :  <div className='container'>
-                <Route path='/Dashboard' exact component={Dashboard}/>
-                <Route path='/Question/:id' exact component={VotePage}/>
-                <Route path='/Result/:id' exact component={QuestionResult}/>
-                <Route path='/New' exact component={NewQuestion}/>
-                <Route path='/LeaderBoard' exact component={LeaderBoard}/>
-                <Route path='/Login' exact component={Login}/>
+                <Switch>
+                  <ProtectedRoute path='/Dashboard' exact component={Dashboard} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/Question/:id' exact component={VotePage} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/Result/:id' exact component={QuestionResult} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/New' exact component={NewQuestion} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/LeaderBoard' exact component={LeaderBoard} loggedIn={loggedIn}/>
+                  <Route path='/Login' exact component={Login}/>
+                  <Route component={NoMatch} />
+                </Switch>
               </div>
 
 
@@ -50,7 +67,8 @@ class App extends Component {
 
 function mapStateToProps({authedUser}) {
   return {
-    loading: authedUser === null
+    loading: authedUser === null,
+    loggedIn: authedUser !== null,
   }
 }
 
