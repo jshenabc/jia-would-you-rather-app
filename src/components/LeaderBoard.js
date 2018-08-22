@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Button, CardHeader, CardFooter, CardBody,
-  CardTitle, CardText, Badge } from 'reactstrap';
+import { Card, CardHeader, CardFooter, CardBody, CardText, Badge } from 'reactstrap';
 
 class LeaderBoard extends Component {
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
 import { Card, Button, CardHeader, CardBody,
-  CardTitle, CardText, Form, FormGroup, Label, Input, FormText  } from 'reactstrap';
+  CardTitle, CardText, Form, FormGroup, Label, Input  } from 'reactstrap';
 
 class NewQuestion extends Component {
   //when you type the submit button will change so we need to use this.state.

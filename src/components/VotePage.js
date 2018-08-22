@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { handleAnswerQuestion } from '../actions/questions'
 import { Card, Button, CardHeader, CardBody,
-  CardTitle, CardText, CustomInput, Form, FormGroup } from 'reactstrap';
+  CardTitle, CustomInput, Form, FormGroup } from 'reactstrap';
 
 class VotePage extends Component {
   state= {
@@ -33,9 +33,9 @@ class VotePage extends Component {
 
   render() {
     const { toResult } = this.state
-    const { question, users, answered } = this.props
+    const { question, users } = this.props
     const {
-      optionOne, optionTwo, author, timestamp, id,
+      optionOne, optionTwo, author, id,
     } = question
     if (question === null) {
       return(

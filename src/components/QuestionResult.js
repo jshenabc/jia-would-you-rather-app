@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
 import { Card, CardHeader, CardBody,
-  CardTitle, CardText, Progress, Badge } from 'reactstrap';
+  CardTitle, CardText, Progress } from 'reactstrap';
 
 class QuestionResult extends Component {
   render() {
