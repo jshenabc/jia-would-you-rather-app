@@ -2,7 +2,7 @@ import { saveQuestion, saveQuestionAnswer } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
-export const ANSWER_QUESTION = 'RECEIVE_QUESTIONS'
+export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 export const DELETE_ANSWERED_QUESTION = 'DELETE_ANSWERED_QUESTION'
 //actionCreators
 export function addQuestion (question) {

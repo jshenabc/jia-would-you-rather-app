@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -34,19 +35,19 @@ class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <Link to='/Dashboard'><NavLink>Home</NavLink></Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/New">New Question</NavLink>
+                <Link to='/New'><NavLink>New Question</NavLink></Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/LeaderBoard">Leader Board</NavLink>
+                <Link to='/LeaderBoard'><NavLink>Leader Board</NavLink></Link>
               </NavItem>
               <NavItem>
                 <NavLink>Hello! {authedUser}</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/Login">Logout</NavLink>
+                <Link to='/Login'><NavLink>Logout</NavLink></Link>
               </NavItem>
             </Nav>
           </Collapse>

@@ -10,6 +10,7 @@ import QuestionResult from './QuestionResult'
 import VotePage from './VotePage'
 import NavBar from './NavBar'
 import LeaderBoard from './LeaderBoard'
+import Login from './Login'
 
 class App extends Component {
 
@@ -27,11 +28,12 @@ class App extends Component {
             {this.props.loading === true
               ? null
             :  <div className='container'>
-                <Route path='/' exact component={Dashboard}/>
+                <Route path='/Dashboard' exact component={Dashboard}/>
                 <Route path='/Question/:id' exact component={VotePage}/>
                 <Route path='/Result/:id' exact component={QuestionResult}/>
                 <Route path='/New' exact component={NewQuestion}/>
                 <Route path='/LeaderBoard' exact component={LeaderBoard}/>
+                <Route path='/Login' exact component={Login}/>
               </div>
 
 
