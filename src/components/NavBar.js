@@ -9,6 +9,7 @@ import {
   Nav,
   NavItem,
   NavLink, } from 'reactstrap';
+import { setAuthedUser } from '../actions/authedUser';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -24,9 +25,25 @@ class NavBar extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  handleLogout = function(e) {
+    const { userId } = 'null';
+    const { dispatch } = this.props;
+
+    dispatch(setAuthedUser(userId));
+  }
+
+  //waiting for adding to
+  //   <NavItem>
+  //   <img
+  //      src={users[authedUser].avatarURL}
+  //      alt={`Avatar of ${authedUser}`}
+  //      className='nav-avatar'
+  //   />
+  // </NavItem>
   render() {
     const { users, authedUser } = this.props
-
+    //console.log(users[authedUser])
     return (
       <div>
         <Navbar color="light" light expand="md">
@@ -35,7 +52,7 @@ class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link exact to='/Dashboard'><NavLink>Home</NavLink></Link>
+                <Link exact to='/'><NavLink>Home</NavLink></Link>
               </NavItem>
               <NavItem>
                 <Link exact to='/New'><NavLink>New Question</NavLink></Link>
@@ -43,12 +60,16 @@ class NavBar extends React.Component {
               <NavItem>
                 <Link exact to='/LeaderBoard'><NavLink>Leader Board</NavLink></Link>
               </NavItem>
-              <NavItem>
-                <NavLink>Hello! {authedUser}</NavLink>
-              </NavItem>
-              <NavItem>
-                <Link to='/Login'><NavLink>Logout</NavLink></Link>
-              </NavItem>
+              { authedUser !== 'null' &&
+                <NavItem>
+                  <NavLink>Hello! {authedUser}</NavLink>
+                </NavItem>
+              }
+              { authedUser !== 'null' &&
+                <NavItem>
+                  <Link to='/Login' onClick={(e) => this.handleLogout(e)}><NavLink>Logout</NavLink></Link>
+                </NavItem>
+              }
             </Nav>
           </Collapse>
         </Navbar>

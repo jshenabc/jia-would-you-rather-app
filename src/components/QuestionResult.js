@@ -8,7 +8,7 @@ class QuestionResult extends Component {
   render() {
     const { users, question, authedUserVote, OptOnePercentage, OptTwoPercentage, OptOneVotesLength, OptTwoVotesLength } = this.props
     const { optionOne, optionTwo, author } = question
-    console.log(authedUserVote)
+    //console.log(authedUserVote)
     return (
       <div>
         <Card>

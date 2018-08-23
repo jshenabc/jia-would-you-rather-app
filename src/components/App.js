@@ -43,7 +43,7 @@ class App extends Component {
               ? null
             :  <div className='container'>
                 <Switch>
-                  <ProtectedRoute path='/Dashboard' exact component={Dashboard} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/' exact component={Dashboard} loggedIn={loggedIn}/>
                   <ProtectedRoute path='/Question/:id' exact component={VotePage} loggedIn={loggedIn}/>
                   <ProtectedRoute path='/Result/:id' exact component={QuestionResult} loggedIn={loggedIn}/>
                   <ProtectedRoute path='/New' exact component={NewQuestion} loggedIn={loggedIn}/>
@@ -68,7 +68,7 @@ class App extends Component {
 function mapStateToProps({authedUser}) {
   return {
     loading: authedUser === null,
-    loggedIn: authedUser !== null,
+    loggedIn: authedUser !== 'null',
   }
 }
 
