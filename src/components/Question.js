@@ -9,7 +9,7 @@ class Question extends Component {
     const { answered } = this.props
     const { question, users } = this.props
     const {
-      optionOne, author, timestamp, id,
+      optionOne, author, id,
     } = question
     if (question === null) {
       return(

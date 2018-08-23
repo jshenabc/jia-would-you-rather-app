@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { Card, CardImg, CardText, CardBody, CardLink,
-  CardTitle, CardSubtitle, CardHeader, Input, Label, Button } from 'reactstrap';
+import { Card, CardBody, CardSubtitle, CardHeader, Input, Button } from 'reactstrap';
 import { setAuthedUser } from '../actions/authedUser';
 
 class Login extends React.Component {
@@ -35,7 +34,7 @@ handleLogin = function(e) {
 }
   render() {
     const { userId, toHome } = this.state;
-    const { history, users } = this.props;
+    const { users } = this.props;
     const avatar = ( userId && userId !== 'null' )? users[userId].avatarURL : 'favicon.ico';
     if(toHome === true) {
       return <Redirect to='/' />
