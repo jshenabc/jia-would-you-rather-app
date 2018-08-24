@@ -38,7 +38,7 @@ class LeaderBoard extends Component {
 function mapStateToProps ({ authedUser, users }){
   let leaderBoardDataSet = [];
   Object.keys(users).map(Id => {
-    leaderBoardDataSet.push({
+    return leaderBoardDataSet.push({
       id: Id,
       avatarURL: users[Id].avatarURL,
       name: users[Id].name,

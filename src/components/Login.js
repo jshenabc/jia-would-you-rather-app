@@ -11,7 +11,7 @@ class Login extends React.Component {
   }
 
   handleInputChange = function(e) {
-  const userId = e.target.value;
+  const userId = e.target.value
 
   this.setState(() => {
     return {
@@ -21,8 +21,8 @@ class Login extends React.Component {
 }
 
 handleLogin = function(e) {
-  const { userId } = this.state;
-  const { dispatch } = this.props;
+  const { userId } = this.state
+  const { dispatch } = this.props
 
   dispatch(setAuthedUser(userId));
 
@@ -33,8 +33,8 @@ handleLogin = function(e) {
   });
 }
   render() {
-    const { userId, toHome } = this.state;
-    const { users } = this.props;
+    const { userId, toHome } = this.state
+    const { users } = this.props
     const avatar = ( userId && userId !== 'null' )? users[userId].avatarURL : 'favicon.ico';
     if(toHome === true) {
       return <Redirect to='/' />

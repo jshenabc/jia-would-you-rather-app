@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
 import { Card, CardHeader, CardBody,
   CardTitle, CardText, Progress } from 'reactstrap';
 

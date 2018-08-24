@@ -42,7 +42,7 @@ class NavBar extends React.Component {
   //   />
   // </NavItem>
   render() {
-    const { users, authedUser } = this.props
+    const { authedUser } = this.props
     //console.log(users[authedUser])
     return (
       <div>

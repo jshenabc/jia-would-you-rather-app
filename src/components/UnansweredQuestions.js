@@ -20,10 +20,6 @@ class UnansweredQuestions extends Component {
 }
 
 function mapStateToProps ({ authedUser, users, questions }){
-  let user;
-  if ( authedUser && users.hasOwnProperty(authedUser) ) {
-    user = users[authedUser]
-  }
 
   const unAnsweredQuestions = Object.keys(questions)
     .sort((a,b) => questions[b].timestamp-questions[a].timestamp)
