@@ -55,10 +55,10 @@ class NavBar extends React.Component {
                 <Link exact to='/'><NavLink>Home</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link exact to='/New'><NavLink>New Question</NavLink></Link>
+                <Link exact to='/add'><NavLink>New Question</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link exact to='/LeaderBoard'><NavLink>Leader Board</NavLink></Link>
+                <Link exact to='/leaderboard'><NavLink>Leader Board</NavLink></Link>
               </NavItem>
               { authedUser !== 'null' &&
                 <NavItem>

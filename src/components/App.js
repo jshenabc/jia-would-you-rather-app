@@ -44,10 +44,10 @@ class App extends Component {
             :  <div className='container'>
                 <Switch>
                   <ProtectedRoute path='/' exact component={Dashboard} loggedIn={loggedIn}/>
-                  <ProtectedRoute path='/Question/:id' exact component={VotePage} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/questions/:id' exact component={VotePage} loggedIn={loggedIn}/>
                   <ProtectedRoute path='/Result/:id' exact component={QuestionResult} loggedIn={loggedIn}/>
-                  <ProtectedRoute path='/New' exact component={NewQuestion} loggedIn={loggedIn}/>
-                  <ProtectedRoute path='/LeaderBoard' exact component={LeaderBoard} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/add' exact component={NewQuestion} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/leaderboard' exact component={LeaderBoard} loggedIn={loggedIn}/>
                   <Route path='/Login' exact component={Login}/>
                   <Route component={NoMatch} />
                 </Switch>
