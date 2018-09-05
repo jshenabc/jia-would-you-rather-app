@@ -6,12 +6,13 @@ import LoadingBar from 'react-redux-loading'
 
 import Dashboard from './Dashboard'
 import NewQuestion from './NewQuestion'
-import QuestionResult from './QuestionResult'
-import VotePage from './VotePage'
+// import QuestionResult from './QuestionResult'
+// import VotePage from './VotePage'
 import NavBar from './NavBar'
 import LeaderBoard from './LeaderBoard'
 import Login from './Login'
 import NoMatch from './NoMatch'
+import QuestionPage from './QuestionPage'
 
 class App extends Component {
 
@@ -44,8 +45,11 @@ class App extends Component {
             :  <div className='container'>
                 <Switch>
                   <ProtectedRoute path='/' exact component={Dashboard} loggedIn={loggedIn}/>
-                  <ProtectedRoute path='/questions/:id' exact component={VotePage} loggedIn={loggedIn}/>
-                  <ProtectedRoute path='/Result/:id' exact component={QuestionResult} loggedIn={loggedIn}/>
+                  <ProtectedRoute path='/questions/:id' exact component={QuestionPage} loggedIn={loggedIn} />
+                  {
+                    //<ProtectedRoute path='/questions/:id' exact component={VotePage} loggedIn={loggedIn}/>
+                    //<ProtectedRoute path='/Result/:id' exact component={QuestionResult} loggedIn={loggedIn}/>
+                  }
                   <ProtectedRoute path='/add' exact component={NewQuestion} loggedIn={loggedIn}/>
                   <ProtectedRoute path='/leaderboard' exact component={LeaderBoard} loggedIn={loggedIn}/>
                   <Route path='/Login' exact component={Login}/>
