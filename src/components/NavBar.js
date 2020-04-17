@@ -7,8 +7,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink, } from 'reactstrap';
+  NavItem, } from 'reactstrap';
 import { setAuthedUser } from '../actions/authedUser';
 
 class NavBar extends React.Component {
@@ -52,22 +51,22 @@ class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link exact to='/'><NavLink>Home</NavLink></Link>
+                <Link to='/'> Home  </Link>
               </NavItem>
               <NavItem>
-                <Link exact to='/add'><NavLink>New Question</NavLink></Link>
+                <Link to='/add'> New Question  </Link>
               </NavItem>
               <NavItem>
-                <Link exact to='/leaderboard'><NavLink>Leader Board</NavLink></Link>
+                <Link to='/leaderboard'> Leader Board  </Link>
               </NavItem>
               { authedUser !== 'null' &&
                 <NavItem>
-                  <NavLink>Hello! {authedUser}</NavLink>
+                   Hello! {authedUser}
                 </NavItem>
               }
               { authedUser !== 'null' &&
                 <NavItem>
-                  <Link to='/Login' onClick={(e) => this.handleLogout(e)}><NavLink>Logout</NavLink></Link>
+                  <Link to='/Login' onClick={(e) => this.handleLogout(e)}> Logout  </Link>
                 </NavItem>
               }
             </Nav>
