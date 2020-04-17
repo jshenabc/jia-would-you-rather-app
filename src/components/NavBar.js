@@ -7,9 +7,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink, } from 'reactstrap';
-import { setAuthedUser } from '../actions/authedUser';
+  NavItem } from 'reactstrap';
+import {logoutAction} from '../actions/authedUser';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -20,17 +19,28 @@ class NavBar extends React.Component {
       isOpen: false
     };
   }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
+  // toggle() {
+  //   this.setState({
+  //     isOpen: !this.state.isOpen
+  //   });
+  // }
+  toggle = () => {
+      this.setState({isOpen: !this.state.isOpen},() => {
+              if(this.state.isOpen)
+                  console.log("state is open")
+              else
+                  console.log("state is not open")
+          }
+      );
   }
 
   handleLogout = function(e) {
-    const { userId } = 'null';
+   const { userId } = null;
     const { dispatch } = this.props;
-
-    dispatch(setAuthedUser(userId));
+    //e.preventDefault();
+    //dispatch(setAuthedUser(userId));
+    dispatch(logoutAction(userId));
+    //window.location.replace('/Login');
   }
 
   //waiting for adding to
@@ -52,22 +62,22 @@ class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link exact to='/'><NavLink>Home</NavLink></Link>
+                <Link  to='/'>Home</Link>
               </NavItem>
               <NavItem>
-                <Link exact to='/add'><NavLink>New Question</NavLink></Link>
+                <Link  to='/add'>New Question</Link>
               </NavItem>
               <NavItem>
-                <Link exact to='/leaderboard'><NavLink>Leader Board</NavLink></Link>
+                <Link  to='/leaderboard'>Leader Board</Link>
               </NavItem>
               { authedUser !== 'null' &&
                 <NavItem>
-                  <NavLink>Hello! {authedUser}</NavLink>
+                  Hello! {authedUser}
                 </NavItem>
               }
               { authedUser !== 'null' &&
                 <NavItem>
-                  <Link to='/Login' onClick={(e) => this.handleLogout(e)}><NavLink>Logout</NavLink></Link>
+                  <Link to='/Login' onClick={(e) => this.handleLogout(e)}>Logout</Link>
                 </NavItem>
               }
             </Nav>
