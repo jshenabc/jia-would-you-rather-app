@@ -5,6 +5,9 @@ import { Card, CardBody, CardSubtitle, CardHeader, Input, Button } from 'reactst
 import { setAuthedUser } from '../actions/authedUser';
 
 class Login extends React.Component {
+  // componentDidMount () {
+  //   this.props.dispatch(handleInitialData())
+  // }
   state = {
     userId: null,
     toHome: false,
