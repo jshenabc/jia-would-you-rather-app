@@ -1,6 +1,8 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This is the final assessment project for Udacity's React & Redux course.
+
+## Get started
 
 To get started developing right away:
 

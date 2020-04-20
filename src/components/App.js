@@ -29,7 +29,11 @@ class App extends Component {
           path={path}
           {...rest}
           render={props => {
-            return loggedIn ? <Comp {...props} /> : <Redirect to="/Login" />;
+            // return loggedIn ? <Comp {...props} /> : <Redirect to="/Login" />;
+            return loggedIn ? <Comp {...props} /> : <Redirect to={{
+                                                                  pathname: '/login',
+                                                                  state: { from: props.location }
+                                                                }} />;
           }}
         />
       );

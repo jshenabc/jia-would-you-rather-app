@@ -7,8 +7,8 @@ import VotePage from './VotePage'
 function QuestionPage(props) {
   const { id, questions, hasAnswer } = props;
   const question = questions[id];
-
-  if(question == null) {
+  console.log(id,question);
+  if(question == null || typeof question === "undefined") {
     return <Redirect to='/no-match' />
   }
 
@@ -24,6 +24,14 @@ function QuestionPage(props) {
 function mapStateToProps({ authedUser, users, questions }, props) {
   const { id } = props.match.params;
   const question = questions[id]
+
+  if(question == null || typeof question === "undefined") {
+    return {
+      id,
+      questions
+    };
+      //console.log(id + question);
+  }
   //get all answers from authedUser
   let authedUserAnswers = users[authedUser].answers
   let hasAnswer

@@ -7,7 +7,7 @@ import { setAuthedUser } from '../actions/authedUser';
 class Login extends React.Component {
   state = {
     userId: null,
-    toHome: false,
+    redirectToReferrer: false,
   }
 
   handleInputChange = function(e) {
@@ -28,18 +28,22 @@ handleLogin = function(e) {
 
   this.setState(() => {
     return {
-      toHome: true,
+      redirectToReferrer: true,
     };
   });
 }
   render() {
-    const { userId, toHome } = this.state
+    const { userId, redirectToReferrer } = this.state
     const { users } = this.props
     const avatar = ( userId && userId !== 'null' )? users[userId].avatarURL : 'favicon.ico';
-    if(toHome === true) {
-      return <Redirect to='/' />
+    // if(redirectToReferrer === true) {
+    //   return <Redirect to='/' />
+    // }
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    
+    if (redirectToReferrer === true) {
+      return <Redirect to={from} />
     }
-
     return (
       <Card>
         <CardHeader>Welcome to Would You Rather Game App</CardHeader>
