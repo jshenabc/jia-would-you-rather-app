@@ -25,11 +25,12 @@ class NavBar extends React.Component {
     });
   }
 
-  handleLogout = function(e) {
-    const { userId } = 'null';
-    const { dispatch } = this.props;
-
-    dispatch(setAuthedUser(userId));
+  handleLogout = function() {
+    // const { userId } = 'null';
+     const { dispatch } = this.props;
+    //
+    dispatch(setAuthedUser('null'))
+    console.log("logout");
   }
 
   //waiting for adding to
@@ -66,7 +67,7 @@ class NavBar extends React.Component {
               }
               { authedUser !== 'null' &&
                 <NavItem>
-                  <Link to='/Login' onClick={(e) => this.handleLogout(e)}> Logout  </Link>
+                  <Link to='/Login' onClick={() => this.handleLogout()}> Logout  </Link>
                 </NavItem>
               }
             </Nav>
